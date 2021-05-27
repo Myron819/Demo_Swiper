@@ -24,4 +24,3 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         return fragments.size();
     }
 }
-

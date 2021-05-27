@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.demoswiper.MyFragmentPagerAdapter;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,8 +26,20 @@ public class MainActivity extends AppCompatActivity {
 
         vPager = findViewById(R.id.viewpager1);
 
+
         btnBack = findViewById(R.id.btnBack);
         btnNext = findViewById(R.id.btnNext);
+
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        al = new ArrayList<Fragment>();
+        al.add(new Frag1());
+        al.add(new Frag2());
+
+        adapter = new MyFragmentPagerAdapter(fm, al);
+
+        vPager.setAdapter(adapter);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-}
 
+    }
+
+}
